@@ -1,0 +1,22 @@
+<div *ngIf="selectedHotels.length != 0; else noHotel" class="row p-4 justify-content-center">
+  <div class="col-12 col-lg-8 col-xl-4 me-xl-5">
+    <div class="row align-items-center p-2 mb-2 border" *ngFor="let hotel of selectedHotels">
+      <div class="col-6">
+        <h1>{{hotel.location}}</h1>
+        <hr/>
+        <ul>
+          <li *ngFor="let desc of hotel.description" appStyleLi>{{desc}}</li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <img [src]="hotel.imagePath[0]" class="img-fluid" style="max-height: 200px;">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-7 col-xl-5 m-4 m-xl-0 ms-xl-5">
+    <app-book-form></app-book-form>
+  </div>
+</div>
+<ng-template #noHotel>
+  You haven't booked hotels.
+</ng-template>

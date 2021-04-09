@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-lg-3">
+    <app-hotels-list *ngFor="let hotel of hotels; let i=index" [index]="i" [hotel]="hotel"></app-hotels-list>
+  </div>
+  <div class="col-lg-8 p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

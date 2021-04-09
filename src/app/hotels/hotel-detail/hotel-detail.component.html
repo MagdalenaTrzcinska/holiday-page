@@ -1,0 +1,38 @@
+<div *ngIf="hotel; else noHotel" class="container">
+  <div class="row">
+    <div class="col-12 col-xl-6">
+      <img [src]="hotel.imagePath[0]" class="img-fluid" style="max-height: 500px">
+    </div>
+    <div class="col-12 col-xl-3">
+      <div class="row mt-4 mt-xl-0">
+        <div class="col-6 col-xl-12 mb-xl-3">
+          <img [src]="hotel.imagePath[1]" class="img-fluid" style="max-height: 200px">
+        </div>
+        <div class="col-6 col-xl-12 mt-xl-2">
+          <img [src]="hotel.imagePath[2]" class="img-fluid" style="max-height: 200px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>{{hotel.location}}</h1>
+      <hr/>
+      <ul>
+        <li *ngFor="let desc of hotel.description" appStyleLi>{{desc}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button type="button" class="btn btn-sm btn-outline-dark" (click)="onBook()">Book</button>
+    </div>
+  </div>
+</div>
+<ng-template #noHotel>
+  Select a hotel.
+</ng-template>
+
+
+
+

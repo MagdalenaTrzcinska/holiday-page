@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="mb-3">
+    <label for="name" class="form-label">Full name</label>
+    <input type="text"
+           class="form-control"
+           name="name"
+           id="name" required ngModel>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email"
+           class="form-control"
+           name="email"
+           id="email" required
+           email ngModel>
+  </div>
+
+  <div class="row align-content-around mb-3">
+    <div class="col-6">
+      <label for="startDate" class="form-label">Start</label>
+      <input id="startDate"
+             type="date"
+             class="form-control"
+             name="startDate"
+             min="{{currentDate}}"
+             max="{{finishDate}}"
+             [(ngModel)]="startDate"
+             required ngModel>
+    </div>
+    <div class="col-6">
+      <label for="finishDate" class="form-label">End</label>
+      <input id="finishDate"
+             type="date"
+             name="finishDate"
+             min="{{startDate}}"
+             [(ngModel)]="finishDate"
+             class="form-control"
+             required ngModel>
+    </div>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox"
+           class="form-check-input"
+           id="exampleCheck1"
+           name="check"
+           required ngModel>
+    <label class="form-check-label" for="exampleCheck1">You accept the terms</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Book</button>
+</form>
