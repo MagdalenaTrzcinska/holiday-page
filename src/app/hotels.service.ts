@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Hotel} from "./hotels/hotel.model";
-import {Observable, of} from "rxjs";
+import {Hotel} from './hotels/hotel.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelsService {
+  loggedIn = false;
+
   hotels: Hotel[] = [
     {
       imagePath: [
@@ -15,10 +17,10 @@ export class HotelsService {
       ],
       location: 'USA',
       description: [
-        "two rooms with kitchen and private bathroom",
-        "large balcony overlooking the city",
-        "close to the center",
-        "market 300m away",
+        'two rooms with kitchen and private bathroom',
+        'large balcony overlooking the city',
+        'close to the center',
+        'market 300m away',
       ]
     },
     {
@@ -29,8 +31,8 @@ export class HotelsService {
       ],
       location: 'UK',
       description: [
-        "222222",
-        "3333333"
+        '222222',
+        '3333333'
       ]
     },
   ];
@@ -38,5 +40,13 @@ export class HotelsService {
   selectedHotels: Hotel[] = [];
 
   constructor() {
+  }
+
+  isAuthenticated() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(this.loggedIn);
+      }, 500);
+    });
   }
 }
