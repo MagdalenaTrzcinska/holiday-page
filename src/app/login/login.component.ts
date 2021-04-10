@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     const password = this.formLogIn.value.password;
     if (this.account.email === email && this.account.password === password) {
       this.service.loggedIn = true;
+      this.errorMessage = null;
     } else {
       this.errorMessage = 'Incorrect email or/and password.';
     }
