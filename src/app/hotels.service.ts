@@ -7,6 +7,7 @@ import {Hotel} from './hotels/hotel.model';
 })
 export class HotelsService {
   loggedIn = false;
+  errorMessage = false;
 
   hotels: Hotel[] = [
     {
@@ -40,13 +41,5 @@ export class HotelsService {
   selectedHotels: Hotel[] = [];
 
   constructor() {
-  }
-
-  isAuthenticated() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(this.loggedIn);
-      }, 500);
-    });
   }
 }

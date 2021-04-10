@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Hotel} from "../hotel.model";
-import {HotelsService} from "../../hotels.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {Hotel} from '../hotel.model';
+import {HotelsService} from '../../hotels.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-hotel-detail',
@@ -13,18 +13,24 @@ export class HotelDetailComponent implements OnInit {
   id: number;
 
   constructor(private service: HotelsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
+      this.id = +params.id;
       this.hotel = this.service.hotels[this.id];
     });
   }
 
-  onBook() {
-    alert("added");
-    this.service.selectedHotels.push(this.hotel);
+  onBook(): void {
+    if (this.service.loggedIn) {
+      alert('added');
+      this.service.selectedHotels.push(this.hotel);
+    } else {
+      this.service.errorMessage = true;
+      this.router.navigate(['login']);
+    }
   }
 }
