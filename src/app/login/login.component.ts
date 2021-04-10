@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HotelsService} from '../hotels.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,12 @@ import {HotelsService} from '../hotels.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  errorMessage: boolean;
+  @ViewChild('f') formLogIn: NgForm;
+  errorMessage: string = null;
+  account = {
+    email: 'user12@qwer.com',
+    password: 'qwert1234'
+  };
 
   constructor(private service: HotelsService) {
   }
@@ -16,4 +22,20 @@ export class LoginComponent implements OnInit {
     this.errorMessage = this.service.errorMessage;
   }
 
+  onLogin(): void {
+    const email = this.formLogIn.value.email;
+    const password = this.formLogIn.value.password;
+    if (this.account.email === email && this.account.password === password) {
+      this.service.loggedIn = true;
+    } else {
+      this.errorMessage = 'Incorrect email or/and password.';
+    }
+  }
+
+  onFillIn(): void {
+    this.formLogIn.form.patchValue({
+      email: this.account.email,
+      password: this.account.password
+    });
+  }
 }

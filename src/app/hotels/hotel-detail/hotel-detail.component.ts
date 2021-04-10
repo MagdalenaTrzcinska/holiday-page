@@ -29,7 +29,7 @@ export class HotelDetailComponent implements OnInit {
       alert('added');
       this.service.selectedHotels.push(this.hotel);
     } else {
-      this.service.errorMessage = true;
+      this.service.errorMessage = 'You must login!';
       this.router.navigate(['login']);
     }
   }

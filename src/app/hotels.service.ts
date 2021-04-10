@@ -7,7 +7,7 @@ import {Hotel} from './hotels/hotel.model';
 })
 export class HotelsService {
   loggedIn = false;
-  errorMessage = false;
+  errorMessage: string = null;
 
   hotels: Hotel[] = [
     {
