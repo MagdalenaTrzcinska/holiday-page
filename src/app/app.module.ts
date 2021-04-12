@@ -22,8 +22,7 @@ const appRoutes: Routes = [
       {path: ':id', component: HotelDetailComponent},
     ]},
   {path: 'book', canActivate: [AuthGuard], component: HotelBookComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent}
+  {path: 'login', component: LoginComponent}
 
 ];
 

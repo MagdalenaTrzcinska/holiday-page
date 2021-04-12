@@ -2,7 +2,7 @@
   <div class="col-12 col-lg-8 col-xl-4 me-xl-5">
     <div class="row align-items-center p-2 mb-2 border" *ngFor="let hotel of selectedHotels">
       <div class="col-6">
-        <h1>{{hotel.location}}</h1>
+        <h1>{{hotel.location | uppercase}}</h1>
         <hr/>
         <ul>
           <li *ngFor="let desc of hotel.description" appStyleLi>{{desc}}</li>
