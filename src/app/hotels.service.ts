@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Hotel} from './hotels/hotel.model';
-
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,6 @@ import {Hotel} from './hotels/hotel.model';
 export class HotelsService {
   loggedIn = false;
   errorMessage: string = null;
-
   hotels: Hotel[] = [
     {
       imagePath: [
@@ -61,9 +60,21 @@ export class HotelsService {
       ]
     }
   ];
-
   selectedHotels: Hotel[] = [];
 
+
+  filteredHotels: Hotel[];
+  filtered = new Subject<Hotel[]>();
   constructor() {
+  }
+
+  onSearch(element): void {
+    this.filteredHotels = [];
+    for (const hotel of this.hotels) {
+      if (hotel.location.toUpperCase().includes(element.toUpperCase())) {
+        this.filteredHotels.push(hotel);
+        this.filtered.next(this.filteredHotels);
+      }
+    }
   }
 }

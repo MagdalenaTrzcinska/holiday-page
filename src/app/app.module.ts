@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component';
 import { LoginComponent } from './login/login.component';
 import {AuthGuard} from './auth.guard';
+import { SearchHotelComponent } from './search-hotel/search-hotel.component';
 
 const appRoutes: Routes = [
   {path: 'hotels', component: HotelsComponent, children: [
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     BookFormComponent,
     HotelsListComponent,
     LoginComponent,
+    SearchHotelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Hotel} from "./hotel.model";
-import {HotelsService} from "../hotels.service";
+import {Component, DoCheck, OnInit} from '@angular/core';
+import {Hotel} from './hotel.model';
+import {HotelsService} from '../hotels.service';
 
 @Component({
   selector: 'app-hotels',
@@ -8,13 +8,16 @@ import {HotelsService} from "../hotels.service";
   styleUrls: ['./hotels.component.scss']
 })
 export class HotelsComponent implements OnInit {
-  hotels: Hotel[] = [];
+  filteredHotel: Hotel[] = [];
 
   constructor(private service: HotelsService) {
   }
 
   ngOnInit(): void {
-    this.hotels = this.service.hotels;
-  }
+    this.filteredHotel = this.service.hotels;
 
+    this.service.filtered.subscribe((hotels: Hotel[]) => {
+      this.filteredHotel = hotels;
+    });
+  }
 }

@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Hotel} from "../hotel.model";
+import {Component, DoCheck, Input, OnInit} from '@angular/core';
+import {Hotel} from '../hotel.model';
+import {HotelsService} from '../../hotels.service';
 
 @Component({
   selector: 'app-hotels-list',
@@ -10,9 +11,10 @@ export class HotelsListComponent implements OnInit {
   @Input() index;
   @Input() hotel: Hotel;
 
-  constructor() { }
+
+
+  constructor(private service: HotelsService) { }
 
   ngOnInit(): void {
   }
-
 }
