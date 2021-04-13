@@ -1,5 +1,6 @@
-import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {HotelsService} from '../hotels.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-search-hotel',
@@ -7,11 +8,11 @@ import {HotelsService} from '../hotels.service';
   styleUrls: ['./search-hotel.component.scss']
 })
 export class SearchHotelComponent {
-  @ViewChild('element') element: ElementRef;
+  @ViewChild('f') form: NgForm;
 
   constructor(private service: HotelsService) {
   }
-  onSearch(el): void {
-    this.service.onSearch(el);
+  onSearch(e): void {
+    this.service.onSearch(e.value.filter);
   }
 }

@@ -62,7 +62,6 @@ export class HotelsService {
   ];
   selectedHotels: Hotel[] = [];
 
-
   filteredHotels: Hotel[];
   filtered = new Subject<Hotel[]>();
   constructor() {
