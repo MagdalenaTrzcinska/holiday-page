@@ -22,7 +22,8 @@
                  id="password"
                  ngModel
                  required
-                 name="password">
+                 name="password"
+                 minlength="6">
         </div>
         <button type="submit" class="btn btn-outline-primary" [disabled]="!f.valid">Login</button>
       </form>

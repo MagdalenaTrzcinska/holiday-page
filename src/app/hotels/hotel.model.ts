@@ -1,4 +1,5 @@
 export class Hotel {
+  public id: string;
   public imagePath: string[];
   public location: string;
   public description: string[];
@@ -9,3 +10,4 @@ export class Hotel {
     this.description = description;
   }
 }
+

@@ -16,6 +16,7 @@ import { HotelsListComponent } from './hotels/hotels-list/hotels-list.component'
 import { LoginComponent } from './login/login.component';
 import {AuthGuard} from './auth.guard';
 import { SearchHotelComponent } from './search-hotel/search-hotel.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: 'hotels', component: HotelsComponent, children: [
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     MatBadgeModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   exports: [MatBadgeModule],
   providers: [],

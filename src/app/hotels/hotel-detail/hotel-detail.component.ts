@@ -11,7 +11,6 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class HotelDetailComponent implements OnInit {
   hotel: Hotel;
   id: number;
-
   constructor(private service: HotelsService,
               private route: ActivatedRoute,
               private router: Router) {
@@ -19,8 +18,8 @@ export class HotelDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params.id;
-      this.hotel = this.service.hotels[this.id];
+      this.id = params.id;
+      this.hotel = this.service.hotels.find(e => +e.id === +this.id);
     });
   }
 

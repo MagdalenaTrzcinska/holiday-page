@@ -11,9 +11,7 @@ export class HotelsListComponent implements OnInit {
   @Input() index;
   @Input() hotel: Hotel;
 
-
-
-  constructor(private service: HotelsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
