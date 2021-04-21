@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnChanges, OnInit} from '@angular/core';
 import {Hotel} from '../hotel.model';
 import {HotelsService} from '../../hotels.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -11,11 +11,14 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class HotelDetailComponent implements OnInit {
   hotel: Hotel;
   id: number;
+  totalPrice = 0;
+  currentDate: string;
+  startDate;
+  finishDate;
   constructor(private service: HotelsService,
               private route: ActivatedRoute,
               private router: Router) {
   }
-
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = params.id;

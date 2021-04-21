@@ -3,11 +3,13 @@ export class Hotel {
   public imagePath: string[];
   public location: string;
   public description: string[];
+  public price: number;
 
-  constructor(imagePath: string[], location: string, description: string[]) {
+  constructor(imagePath: string[], location: string, description: string[], price: number) {
     this.imagePath = imagePath;
     this.location = location;
     this.description = description;
+    this.price = price;
   }
 }
 

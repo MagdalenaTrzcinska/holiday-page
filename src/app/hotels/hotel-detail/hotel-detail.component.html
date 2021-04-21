@@ -17,6 +17,7 @@
   <div class="row">
     <div class="col-12">
       <h1>{{hotel.location | uppercase}}</h1>
+      <span>{{hotel.price}} $ per day</span>
       <hr/>
       <ul>
         <li *ngFor="let desc of hotel.description" appStyleLi>{{desc}}</li>
