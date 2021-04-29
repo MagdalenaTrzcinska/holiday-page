@@ -1,6 +1,6 @@
 import {Component, DoCheck, OnChanges, OnInit} from '@angular/core';
 import {Hotel} from '../hotel.model';
-import {HotelsService} from '../../hotels.service';
+import {HotelsService} from '../../../services/hotels.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({

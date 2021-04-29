@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {HotelsService} from '../hotels.service';
+import {HotelsService} from '../../services/hotels.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
